@@ -1,44 +1,33 @@
 <nav class="navbar navbar-light bg-light">
-    <div class="row">
-        <Input class="form-control" type="search" placeholder="Search" aria-label="Search" @value={{this.text_input}} />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" {{on 'click' this.search}}>Search</button>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" {{on 'click' this.clean}}>Clean</button>
+
+    <div class="input-group">
+        <Input type="text" class="form-control" placeholder="Buscar entre muchos productos" @value={{this.text_input}}/>
+        <div class="input-group-append" id="button-addon4">
+            <button class="btn btn-outline-secondary" type="button" {{on 'click' this.search}}>Search</button>
+            <button class="btn btn-outline-secondary" type="button" {{on 'click' this.clean}}>Clean</button>
+        </div>
     </div>
+
 </nav>
 
 {{#if this.search_flag}}
-
 <div class='card-columns'>
     {{#each this.array_results as |item|}}
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src={{item.thumbnail}} width="90" height="90">
+    <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+        <img class="image" src={{item.thumbnail}}>
         <div class="card-body">
             <h5 class="card-title">{{item.title}}</h5>
             <p class="card-text">${{item.price}}</p>
-            <button class="btn btn-primary" {{action "access_item" item.id on="click"}}>Go somewhere</button>
+            <button class="btn btn-primary" {{action "access_item" item.id on="click"}}>Ver mas</button>
         </div>
     </div>
     {{/each}}
 </div>
-<!--
-<div class="row">
-    <div class="col-12 col-sm-8 col-lg-5">
-        <ul class="list-group">
-            {{#each this.array_results as |item|}}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                {{item.title}}
-                <div class="image-parent">
-                    <img src={{item.thumbnail}} class="img-fluid">
-                </div>
-            </li>
-            {{/each}}
-        </ul>
-    </div>
-</div>-->
+<Paginator/>
 {{/if}}
 
 {{#if this.item_detail}}
-<div class="container">
+<div class="container-fluid">
     <div class="card-body">
         <h5 class="card-title">{{this.item_title}}</h5>
         <p class="card-text">${{this.item_price}}</p>
