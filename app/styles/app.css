@@ -1,0 +1,24 @@
+.card {
+    background: #fff;
+    display: inline-block;
+    border: 1px solid #ddd;
+  }
+
+.image {
+    float: center;
+    background: #000;
+    width: 90;
+    height: 90;
+  }
+
+  .content {
+    float: left;
+    height: 140px;
+    width: 73%;
+    overflow: hidden;
+    padding: 5px;
+  }
+
+  .content h5 {
+    margin: 5px 0;
+  }
