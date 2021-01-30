@@ -3,8 +3,8 @@
     <div class="input-group">
         <Input type="text" class="form-control" placeholder="Buscar entre muchos productos" @value={{this.text_input}}/>
         <div class="input-group-append" id="button-addon4">
-            <button class="btn btn-outline-secondary" type="button" {{on 'click' this.search}}>Search</button>
-            <button class="btn btn-outline-secondary" type="button" {{on 'click' this.clean}}>Clean</button>
+            <button id="search-button" class="btn btn-outline-secondary" type="button" {{on 'click' this.search}}>Search</button>
+            <button id="clean-button" class="btn btn-outline-secondary" type="button" {{on 'click' this.clean}}>Clean</button>
         </div>
     </div>
 
@@ -18,7 +18,7 @@
         <div class="card-body">
             <h5 class="card-title">{{item.title}}</h5>
             <p class="card-text">${{item.price}}</p>
-            <button class="btn btn-primary" {{action "access_item" item.id on="click"}}>Ver mas</button>
+            <button name="ver_mas" class="btn btn-primary" {{action "access_item" item.id on="click"}}>Ver mas</button>
         </div>
     </div>
     {{/each}}
