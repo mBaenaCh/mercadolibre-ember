@@ -33,6 +33,11 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `ember test`
 * `ember test --server`
 
+### Running Tests with Cypress
+
+* `npm run cypress:open` Opens up the Cypress console on you web browser
+* `npm run cypress:run` Runs Cypress locally
+
 ### Linting
 
 * `npm run lint:hbs`
